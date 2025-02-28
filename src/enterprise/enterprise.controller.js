@@ -13,23 +13,19 @@ export const registerEnterprise = async (req, res) => {
             });
         }
 
-        // Crear la empresa con los datos proporcionados
         const enterprise = new Enterprise({
             ...data,
             yearFoundation: isoDate,
         });
 
-        // Guardar la empresa en la base de datos
         await enterprise.save();
 
-        // Respuesta exitosa
         return res.status(200).json({
             success: true,
             message: "Enterprise registered successfully",
             enterprise,
         });
     } catch (error) {
-        // Manejo de errores
         return res.status(500).json({
             success: false,
             msg: "Error registering the enterprise",

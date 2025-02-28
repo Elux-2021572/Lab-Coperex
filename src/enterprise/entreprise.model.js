@@ -61,4 +61,10 @@ enterpriseSchema.virtual('yearsInService').get(function () {
     return currentYear - foundationYear;
 });
 
+enterpriseSchema.methods.toJSON = function (){
+    const { _id, ...enterprise} = this.toObject({ virtuals: true});
+    enterprise.uid = _id;
+    return enterprise;
+}
+
 export default model('Enterprise', enterpriseSchema);
