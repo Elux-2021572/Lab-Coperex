@@ -22,3 +22,11 @@ http://localhost:3001/coperexManagement/v1/enterprise/registerEnterprise
     "impactLevel": "HIGH",
     "yearFoundation": "2005-06-15"
 }
+
+http://localhost:3001/coperexManagement/v1/enterprise/getEnterprises
+
+http://localhost:3001/coperexManagement/v1/enterprise/updateEnterprise/67c21dbe9722c4adc2209950
+{
+    "name": "Car automatic Updated",
+    "description": "A company focused on transport and logistics."
+}
