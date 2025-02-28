@@ -21,6 +21,7 @@
   ],
   "author": "Emilio Lux",
   "license": "MIT",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Elux-2021572/Lab-Coperex/issues"
   },
