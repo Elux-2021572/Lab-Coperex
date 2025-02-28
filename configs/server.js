@@ -8,7 +8,7 @@ import { dbConnection } from "./mongo.js"
 import apiLimiter from "../src/middlewares/rate-limit-validators.js"
 import authRoutes from "../src/auth/auth.router.js"
 import {defaultAdmin} from "./defaultAdmin.js"
-import {companyRoutes} from "../src/company/company.router.js"
+import enterpriseRoutes from "../src/enterprise/enterprise.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false}))
@@ -21,7 +21,7 @@ const middlewares = (app) => {
 
 const routes = (app) => {
     app.use("/coperexManagement/v1/auth",authRoutes)
-    app.use("/coperexManagement/v1/company",companyRoutes)
+    app.use("/coperexManagement/v1/company",enterpriseRoutes)
 }
 
 const conectarDB = async () => {
