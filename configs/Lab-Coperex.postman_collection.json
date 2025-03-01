@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "22659233-6516-4bfb-bd50-b611e49349ce",
+		"name": "Lab-Coperex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37780367"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Kernel\",\r\n  \"password\": \"emLo06.20#\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Enterprise",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyNWNhMjhhYTIzM2ZhMzM5OTJjZjMiLCJpYXQiOjE3NDA3OTEwMjYsImV4cCI6MTc0MDc5NDYyNn0.6kSkXzxcEAYZVU2aIV_MIi1XXb4q9MR7sJhQ0GhJR1w",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"name\": \"BrightFuture Tech\",\r\n        \"description\": \"AI-driven technology solutions for businesses.\",\r\n        \"category\": \"Technology\",\r\n        \"address\": \"777 Innovation Dr, Boston, USA\",\r\n        \"phone\": \"90123456\",\r\n        \"email\": \"hello@brightfuture.com\",\r\n        \"impactLevel\": \"MEDIUM\",\r\n        \"yearFoundation\": \"2014-10-30\"\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/registerEnterprise",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"registerEnterprise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Enterprise",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/getEnterprises",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"getEnterprises"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Enterprise",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2MyNWNhMjhhYTIzM2ZhMzM5OTJjZjMiLCJpYXQiOjE3NDA3OTEwMjYsImV4cCI6MTc0MDc5NDYyNn0.6kSkXzxcEAYZVU2aIV_MIi1XXb4q9MR7sJhQ0GhJR1w",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "        {\r\n            \"category\": \"Energy and Environment\",\r\n            \"address\": \"789 Innovation Dr, Bostoa, USA\",\r\n            \"phone\": \"90123457\",\r\n            \"email\": \"byebye@brightfuture.com\",\r\n            \"impactLevel\": \"LOW\",\r\n            \"yearFoundation\": \"2024-10-29T06:00:00.000Z\"\r\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/updateEnterprise/67c25e848aa233fa33992d1e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"updateEnterprise",
+						"67c25e848aa233fa33992d1e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report with excel",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/generateEnterprise/Report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"generateEnterprise",
+						"Report"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order A-Z",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/getEnterprisesByOrder?order=A-Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"getEnterprisesByOrder"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "A-Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Z-A",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/getEnterprisesByOrder?order=Z-A",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"getEnterprisesByOrder"
+					],
+					"query": [
+						{
+							"key": "order",
+							"value": "Z-A"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order by Category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/coperexManagement/v1/enterprise/getEnterprisesByCategory/Technology",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"coperexManagement",
+						"v1",
+						"enterprise",
+						"getEnterprisesByCategory",
+						"Technology"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
