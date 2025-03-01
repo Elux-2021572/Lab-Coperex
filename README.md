@@ -30,3 +30,7 @@ http://localhost:3001/coperexManagement/v1/enterprise/updateEnterprise/67c21dbe9
     "name": "Car automatic Updated",
     "description": "A company focused on transport and logistics."
 }
+Authorization Bearer 
+Content-Type application/json
+
+http://localhost:3001/coperexManagement/v1/enterprise/generateEnterpriseReport

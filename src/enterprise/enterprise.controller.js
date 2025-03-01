@@ -1,4 +1,11 @@
 import Enterprise from "./entreprise.model.js";
+import ExcelJS from 'exceljs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 export const registerEnterprise = async (req, res) => {
     try {
@@ -95,3 +102,68 @@ export const updateEnterprise = async (req, res) => {
     }
 };
 
+
+export const generateEnterpriseReport = async (req, res) => {
+    try {
+        // Obtener todas las empresas
+        const enterprises = await Enterprise.find();
+
+        // Verificar si hay empresas
+        if (enterprises.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: 'There are no enterprises to generate the report',
+            });
+        }
+
+        // Crear un nuevo libro de Excel
+        const workbook = new ExcelJS.Workbook();
+        const worksheet = workbook.addWorksheet('Enterprises Report');
+
+        // Definir las columnas del informe
+        worksheet.columns = [
+            { header: 'Name', key: 'name', width: 25 },
+            { header: 'Description', key: 'description', width: 50 },
+            { header: 'Address', key: 'address', width: 30 },
+            { header: 'Phone', key: 'phone', width: 15 },
+            { header: 'Email', key: 'email', width: 30 },
+            { header: 'Impact Level', key: 'impactLevel', width: 15 },
+            { header: 'Year Foundation', key: 'yearFoundation', width: 15 },
+            { header: 'Category', key: 'category', width: 20 },
+            { header: 'Years in Service', key: 'yearsInService', width: 15 },
+        ];
+
+        // Agregar filas con los datos de las empresas
+        enterprises.forEach((enterprise) => {
+            worksheet.addRow({
+                name: enterprise.name,
+                description: enterprise.description,
+                address: enterprise.address,
+                phone: enterprise.phone,
+                email: enterprise.email,
+                impactLevel: enterprise.impactLevel,
+                yearFoundation: enterprise.yearFoundation.toISOString().split('T')[0], // Formato YYYY-MM-DD
+                category: enterprise.category,
+                yearsInService: enterprise.yearsInService, // Campo virtual
+            });
+        });
+
+        // Guardar el archivo Excel
+        const filePath = path.join(__dirname, `../../public/reports/enterprises-report-${Date.now()}.xlsx`);
+        await workbook.xlsx.writeFile(filePath);
+
+        // Respuesta exitosa
+        return res.status(200).json({
+            success: true,
+            message: 'Report generated successfully',
+            report: filePath,
+        });
+    } catch (error) {
+        // Manejo de errores
+        return res.status(500).json({
+            success: false,
+            message: 'Error generating report',
+            error: error.message,
+        });
+    }
+};
