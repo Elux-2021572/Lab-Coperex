@@ -5,7 +5,10 @@ import cors from "cors"
 import helmet from "helmet"
 import morgan from "morgan"
 import { dbConnection } from "./mongo.js"
-import apiLimiter from "../middlewares/rate-limit-validators.js"
+import apiLimiter from "../src/middlewares/rate-limit-validators.js"
+import authRoutes from "../src/auth/auth.router.js"
+import {defaultAdmin} from "./defaultAdmin.js"
+import enterpriseRoutes from "../src/enterprise/enterprise.routes.js"
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false}))
@@ -17,7 +20,8 @@ const middlewares = (app) => {
 }
 
 const routes = (app) => {
-
+    app.use("/coperexManagement/v1/auth",authRoutes)
+    app.use("/coperexManagement/v1/enterprise",enterpriseRoutes)
 }
 
 const conectarDB = async () => {
@@ -35,6 +39,7 @@ export const initServer = () =>{
         middlewares(app);
         conectarDB();
         routes(app);
+        defaultAdmin();
         const port = process.env.PORT || 3001;
         app.listen(port, () => {
             console.log(`Server running on port ${port}`);

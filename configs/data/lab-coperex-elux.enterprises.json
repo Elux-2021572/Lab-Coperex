@@ -1,0 +1,210 @@
+[{
+  "_id": {
+    "$oid": "67c25e148aa233fa33992cfa"
+  },
+  "name": "EcoPower Solutions",
+  "description": "A company providing clean and renewable energy solutions.",
+  "category": "Energy and Environment",
+  "address": "789 Green St, San Francisco, CA, USA",
+  "phone": "12345678",
+  "email": "contact@ecopower.com",
+  "impactLevel": "HIGH",
+  "yearFoundation": {
+    "$date": "2010-06-19T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:08:36.427Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:08:36.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e238aa233fa33992cfe"
+  },
+  "name": "TechNova",
+  "description": "Innovative software and AI development company.",
+  "category": "Technology",
+  "address": "456 Silicon Ave, New York, USA",
+  "phone": "87654321",
+  "email": "info@technova.com",
+  "impactLevel": "MEDIUM",
+  "yearFoundation": {
+    "$date": "2015-09-11T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:08:51.902Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:08:51.902Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e2d8aa233fa33992d02"
+  },
+  "name": "FarmFresh",
+  "description": "Organic agriculture company providing fresh produce.",
+  "category": "Agriculture",
+  "address": "23 Farm Road, Texas, USA",
+  "phone": "23456789",
+  "email": "sales@farmfresh.com",
+  "impactLevel": "LOW",
+  "yearFoundation": {
+    "$date": "2005-03-07T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:09:01.656Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:09:01.656Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e368aa233fa33992d06"
+  },
+  "name": "MediWell",
+  "description": "Healthcare services focused on preventive medicine.",
+  "category": "Health and Wellness",
+  "address": "101 Healthy St, Chicago, USA",
+  "phone": "34567890",
+  "email": "support@mediwell.com",
+  "impactLevel": "HIGH",
+  "yearFoundation": {
+    "$date": "2012-11-24T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:09:10.335Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:09:10.335Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e3c8aa233fa33992d0a"
+  },
+  "name": "FastMove Logistics",
+  "description": "Efficient transportation and logistics services.",
+  "category": "Transportation",
+  "address": "789 Speed Blvd, Miami, USA",
+  "phone": "45678901",
+  "email": "logistics@fastmove.com",
+  "impactLevel": "MEDIUM",
+  "yearFoundation": {
+    "$date": "2018-07-13T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:09:16.872Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:09:16.872Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e628aa233fa33992d0e"
+  },
+  "name": "SolarBright",
+  "description": "Company specializing in solar energy solutions.",
+  "category": "Energy and Environment",
+  "address": "99 Sunray Ave, Los Angeles, CA, USA",
+  "phone": "56789012",
+  "email": "info@solarbright.com",
+  "impactLevel": "HIGH",
+  "yearFoundation": {
+    "$date": "2016-04-21T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:09:54.427Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:09:54.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e6b8aa233fa33992d12"
+  },
+  "name": "AgroTech Farms",
+  "description": "Modern farming with a focus on sustainable agriculture.",
+  "category": "Agriculture",
+  "address": "14 Green Valley, Kansas, USA",
+  "phone": "67890123",
+  "email": "contact@agrotech.com",
+  "impactLevel": "MEDIUM",
+  "yearFoundation": {
+    "$date": "2013-08-09T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:10:03.431Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:10:03.431Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e758aa233fa33992d16"
+  },
+  "name": "MedCare Plus",
+  "description": "Advanced healthcare and telemedicine services.",
+  "category": "Health and Wellness",
+  "address": "202 Life St, Houston, USA",
+  "phone": "78901234",
+  "email": "support@medcareplus.com",
+  "impactLevel": "HIGH",
+  "yearFoundation": {
+    "$date": "2017-01-04T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:10:13.134Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:10:13.134Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e7c8aa233fa33992d1a"
+  },
+  "name": "EcoDrive Logistics",
+  "description": "Sustainable and electric-powered transport services.",
+  "category": "Transportation",
+  "address": "55 EcoWay, Seattle, USA",
+  "phone": "89012345",
+  "email": "services@ecodrive.com",
+  "impactLevel": "LOW",
+  "yearFoundation": {
+    "$date": "2019-06-17T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:10:20.461Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:10:20.461Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67c25e848aa233fa33992d1e"
+  },
+  "name": "BrightFuture Tech",
+  "description": "AI-driven technology solutions for businesses.",
+  "category": "Energy and Environment",
+  "address": "789 Innovation Dr, Bostoa, USA",
+  "phone": "90123457",
+  "email": "byebye@brightfuture.com",
+  "impactLevel": "LOW",
+  "yearFoundation": {
+    "$date": "2024-10-29T06:00:00.000Z"
+  },
+  "createdAt": {
+    "$date": "2025-03-01T01:10:28.176Z"
+  },
+  "updatedAt": {
+    "$date": "2025-03-01T01:18:06.608Z"
+  }
+}]
