@@ -5,27 +5,27 @@ Lab-Coperex es una API que permite a las empresas registrar sus datos, incluyend
 ## 📌 Requisitos previos
 
 Asegúrate de tener instalado lo siguiente en tu sistema:
-- ✅ [Node.js](https://nodejs.org/)
-- ✅ [Postman](https://www.postman.com/) (opcional, pero recomendado para pruebas)
+- [Node.js](https://nodejs.org/)
+- [Postman](https://www.postman.com/) (opcional, pero recomendado para pruebas)
 
-## 📥 Instalación
+## Instalación
 
-1. 📂 Clona este repositorio:
+1. Clona este repositorio:
    ```sh
    git clone https://github.com/tu-repo/lab-coperex.git
    ```
-2. 📁 Accede al directorio del proyecto:
+2. Accede al directorio del proyecto:
    ```sh
    cd lab-coperex
    ```
-3. 📦 Instala las dependencias necesarias:
+3. Instala las dependencias necesarias:
    ```sh
    npm install
    ```
 
 ## ⚡ Uso
 
-### 🔐 Autenticación
+### Autenticación
 Para autenticarse en la API, usa el endpoint:
 ```
 POST http://localhost:3001/coperexManagement/v1/auth/login
@@ -38,7 +38,7 @@ Body:
 }
 ```
 
-### 🏢 Registro de Empresas
+### Registro de Empresas
 Para registrar una empresa, usa el endpoint:
 ```
 POST http://localhost:3001/coperexManagement/v1/enterprise/registerEnterprise
@@ -57,14 +57,12 @@ Body:
 }
 ```
 
-### 📜 Listar Empresas
-Para obtener una lista de empresas registradas:
+### Listar Empresas
 ```
 GET http://localhost:3001/coperexManagement/v1/enterprise/getEnterprises
 ```
 
-### ✏️ Actualizar Empresa
-Para actualizar los datos de una empresa:
+### Actualizar Empresa
 ```
 PUT http://localhost:3001/coperexManagement/v1/enterprise/updateEnterprise/{enterpriseId}
 ```
@@ -76,31 +74,32 @@ Body:
 }
 ```
 
-### 📊 Generar Reporte en Excel
+### Generar Reporte en Excel
 ```
 GET http://localhost:3001/coperexManagement/v1/enterprise/generateEnterprise/Report
 ```
 
 ### 🔄 Ordenar Empresas
-- 📌 Ordenar A-Z:
+- Ordenar A-Z:
   ```
   GET http://localhost:3001/coperexManagement/v1/enterprise/getEnterprisesByOrder?order=A-Z
   ```
-- 📌 Ordenar Z-A:
+- Ordenar Z-A:
   ```
   GET http://localhost:3001/coperexManagement/v1/enterprise/getEnterprisesByOrder?order=Z-A
   ```
-- 🔍 Filtrar por categoría:
+- Filtrar por categoría:
   ```
   GET http://localhost:3001/coperexManagement/v1/enterprise/getEnterprisesByCategory/{category}
   ```
 
 ## 🛠️ Tecnologías utilizadas
-- 🟢 Node.js
-- ⚡ Express
-- 🍃 MongoDB
-- 🔑 JSON Web Tokens (JWT)
+- Node.js
+- Express
+- MongoDB
+- JSON Web Tokens (JWT)
 
-## 📧 Contacto
-Para cualquier consulta o reporte de problemas, contacta con el equipo de desarrollo en [email@example.com](mailto:email@example.com).
+## Contacto
+Para cualquier consulta o reporte de problemas, contacta con el equipo de desarrollo en elux-2021572@kinal.edu.gt 
+
 
