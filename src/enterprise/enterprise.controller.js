@@ -2,6 +2,8 @@ import Enterprise from "./entreprise.model.js";
 import ExcelJS from 'exceljs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { defaultCategory } from '../../configs/defaultCategory.js';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,7 +13,6 @@ export const registerEnterprise = async (req, res) => {
     try {
         const { yearFoundation, ...data } = req.body;
 
-        // Validar y convertir la fecha de fundación
         const isoDate = new Date(yearFoundation);
         if (isNaN(isoDate.getTime())) {
             return res.status(400).json({
@@ -41,7 +42,6 @@ export const registerEnterprise = async (req, res) => {
     }
 };
 
-// Obtener todas las empresas
 export const getEnterprises = async (req, res) => {
     try {
         const enterprises = await Enterprise.find();
@@ -59,7 +59,6 @@ export const getEnterprises = async (req, res) => {
     }
 };
 
-// Actualizar una empresa por ID
 export const updateEnterprise = async (req, res) => {
     try {
         const { id } = req.params;
@@ -105,10 +104,8 @@ export const updateEnterprise = async (req, res) => {
 
 export const generateEnterpriseReport = async (req, res) => {
     try {
-        // Obtener todas las empresas
         const enterprises = await Enterprise.find();
 
-        // Verificar si hay empresas
         if (enterprises.length === 0) {
             return res.status(404).json({
                 success: false,
@@ -116,11 +113,9 @@ export const generateEnterpriseReport = async (req, res) => {
             });
         }
 
-        // Crear un nuevo libro de Excel
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet('Enterprises Report');
 
-        // Definir las columnas del informe
         worksheet.columns = [
             { header: 'Name', key: 'name', width: 25 },
             { header: 'Description', key: 'description', width: 50 },
@@ -133,7 +128,6 @@ export const generateEnterpriseReport = async (req, res) => {
             { header: 'Years in Service', key: 'yearsInService', width: 15 },
         ];
 
-        // Agregar filas con los datos de las empresas
         enterprises.forEach((enterprise) => {
             worksheet.addRow({
                 name: enterprise.name,
@@ -142,27 +136,84 @@ export const generateEnterpriseReport = async (req, res) => {
                 phone: enterprise.phone,
                 email: enterprise.email,
                 impactLevel: enterprise.impactLevel,
-                yearFoundation: enterprise.yearFoundation.toISOString().split('T')[0], // Formato YYYY-MM-DD
+                yearFoundation: enterprise.yearFoundation.toISOString().split('T')[0],
                 category: enterprise.category,
-                yearsInService: enterprise.yearsInService, // Campo virtual
+                yearsInService: enterprise.yearsInService,
             });
         });
 
-        // Guardar el archivo Excel
         const filePath = path.join(__dirname, `../../public/reports/enterprises-report-${Date.now()}.xlsx`);
         await workbook.xlsx.writeFile(filePath);
 
-        // Respuesta exitosa
         return res.status(200).json({
             success: true,
             message: 'Report generated successfully',
             report: filePath,
         });
     } catch (error) {
-        // Manejo de errores
         return res.status(500).json({
             success: false,
             message: 'Error generating report',
+            error: error.message,
+        });
+    }
+};
+
+export const getEnterprisesByOrder = async (req, res) => {
+    try {
+        const { order } = req.query; 
+        let nameSort = {}; 
+
+        if (order === 'A-Z') {
+            nameSort.name = 1; 
+        } else if (order === 'Z-A') {
+            nameSort.name = -1; 
+        }
+        const enterprises = await Enterprise.find().sort(nameSort);
+
+        return res.status(200).json({
+            success: true,
+            total: enterprises.length,
+            enterprises,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error getting enterprises",
+            error: error.message,
+        });
+    }
+};
+
+export const getEnterprisesByCategory = async (req, res) => {
+    try {
+        const { category } = req.params; 
+
+        if (!defaultCategory.includes(category)) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid category',
+                validCategories: defaultCategory, 
+            });
+        }
+        const enterprises = await Enterprise.find({ category });
+
+        if (enterprises.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: 'No enterprises found in the specified category',
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            total: enterprises.length,
+            enterprises,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false,
+            message: "Error getting enterprises by category",
             error: error.message,
         });
     }

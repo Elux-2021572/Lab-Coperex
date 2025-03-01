@@ -18,3 +18,11 @@ export const updateEnterpriseValidator = [
     validateFields,
     handleErrors
 ]
+
+export const getEnterpriseByCategoryValidator = [
+    param("category").isString().withMessage("Category must be a string"),
+    validateFields,
+    handleErrors
+]
+
+
